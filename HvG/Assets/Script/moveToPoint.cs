@@ -6,6 +6,7 @@ public class moveToPoint : MonoBehaviour
 {
     Vector3 movePosition;
     public bool stopped;
+    public float stoppingDist;
     [SerializeField] float distance;
     // Start is called before the first frame update
     private void Awake()
@@ -25,12 +26,13 @@ public class moveToPoint : MonoBehaviour
         {
             Vector3 moveDir = (movePosition - transform.position);
             distance = moveDir.magnitude;
-            if (distance > 1f) GetComponent<moveVelocity>().SetVelocity(moveDir.normalized);
+            if (distance > stoppingDist) GetComponent<moveVelocity>().SetVelocity(moveDir.normalized);
             else stopped = true;
         }
         else
         {
             GetComponent<moveVelocity>().SetVelocity(Vector3.zero);
+            //GetComponent<moveVelocity>().SetSpeed(0);
         }
         
 

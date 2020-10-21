@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class unitAI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Unit behavior script
     Rigidbody rb;
     public GameObject target;
     public bool human;
     GameObject HumanControl;
     GameObject GoblinControl;
+    public GameObject building;
+    GameObject gameManager;
     public enum State
     {
         waiting,
         moving,
         mining,
         building,
-        following
+        following,
+        wandering
     }
     public State state = State.waiting;
     void Start()
@@ -24,6 +27,7 @@ public class unitAI : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         HumanControl = GameObject.Find("HumanCtrl");
         GoblinControl = GameObject.Find("GoblinCtrl");
+        gameManager = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
@@ -35,6 +39,7 @@ public class unitAI : MonoBehaviour
                 GetComponent<moveToPoint>().stopped = true;
                 break;
             case (State.moving):
+
                 break;
             case (State.mining):
                 if (GetComponent<moveToPoint>().stopped)
@@ -42,14 +47,29 @@ public class unitAI : MonoBehaviour
                     StartCoroutine(Mine());
                 }
                 break;
+            case (State.building):
+                if (GetComponent<moveToPoint>().stopped)
+                {
+                    if (gameManager.GetComponent<GameManager>().getWood(human) > 0)
+                    {
+                        gameManager.GetComponent<GameManager>().addWood(-1, human);
+                        Instantiate(building, new Vector3(transform.position.x +2f, 0.5f, transform.position.z),Quaternion.identity);
+
+
+                    }
+                    state = State.waiting;
+
+
+                }
+
+                break;
             case (State.following):
+                GetComponent<moveToPoint>().stoppingDist = 1f;
+                GetComponent<moveToPoint>().SetMovePosition(target.transform.position);
                 break;
 
-        }
-    }
-    public void MoveTo(Vector3 position)
-    {
 
+        }
     }
     IEnumerator Mine()
     {

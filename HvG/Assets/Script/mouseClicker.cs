@@ -35,6 +35,7 @@ public class mouseClicker : MonoBehaviour
                         if (hit.transform.gameObject.tag == "Human" || hit.transform.gameObject.tag == "Goblin")
                         {
                             selected = hit.transform.gameObject;
+                            selected.GetComponent<unitAI>().state = unitAI.State.waiting;
                         }
                         
                         PrintName(hit.transform.gameObject);
@@ -49,15 +50,29 @@ public class mouseClicker : MonoBehaviour
                 {
                     if (hit.transform.gameObject.tag == "Resource")
                     {
+                        target = hit.transform.gameObject;
                         selected.GetComponent<unitAI>().state = unitAI.State.mining;
                         selected.GetComponent<unitAI>().target = hit.transform.gameObject;
                         selected.GetComponent<moveToPoint>().SetMovePosition(hit.point);
                         
                     }
+                    if (hit.transform.gameObject.tag == "Player")
+                    {
+                        target = hit.transform.gameObject;
+                        selected.GetComponent<unitAI>().target = hit.transform.gameObject;
+                        selected.GetComponent<unitAI>().state = unitAI.State.following;
+
+                    }
                 }
                 if (Input.GetMouseButtonDown(1))
                 {
                     selected.GetComponent<unitAI>().state = unitAI.State.moving;
+                    selected.GetComponent<moveToPoint>().SetMovePosition(hit.point);
+                }
+
+                if (Input.GetKeyDown(KeyCode.B))
+                {
+                    selected.GetComponent<unitAI>().state = unitAI.State.building;
                     selected.GetComponent<moveToPoint>().SetMovePosition(hit.point);
                 }
             }

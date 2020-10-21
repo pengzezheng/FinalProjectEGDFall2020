@@ -21,7 +21,7 @@ public class resource : MonoBehaviour
     public void GatherResource(int amount,bool human)
     {
         quantity -= 1;
-        gameManager.GetComponent<GameManager>().addWood(human);
+        gameManager.GetComponent<GameManager>().addWood(1,human);
         if (quantity < 1) { Destroy(gameObject); }
     }
 }

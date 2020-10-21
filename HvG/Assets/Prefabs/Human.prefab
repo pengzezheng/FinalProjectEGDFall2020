@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopped: 0
+  stoppingDist: 1.5
   distance: 0
 --- !u!114 &-1815409015755374114
 MonoBehaviour:
@@ -41,6 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   human: 1
+  building: {fileID: 8258781672297775198, guid: 847b193470ce5bb448f37a983420287a, type: 3}
   state: 0
 --- !u!1001 &2469637049045843114
 PrefabInstance:
@@ -107,10 +109,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7365455519655578398, guid: 1693e3e7f47e9d2498283fde4b79b8ad, type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 7365455519655578398, guid: 1693e3e7f47e9d2498283fde4b79b8ad, type: 3}
       propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365455519655578398, guid: 1693e3e7f47e9d2498283fde4b79b8ad, type: 3}
+      propertyPath: m_Drag
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

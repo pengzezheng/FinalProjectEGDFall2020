@@ -23,9 +23,14 @@ public class GameManager : MonoBehaviour
         HWoodCount.text = HWood.ToString();
         GWoodCount.text = GWood.ToString();
     }
-    public void addWood(bool human)
+    public void addWood(int amount, bool human)
     {
-        if (human) HWood += 1;
-        else { GWood += 1; }
+        if (human) HWood += amount;
+        else { GWood += amount; }
+    }
+    public int getWood(bool human)
+    {
+        if (human) return HWood;
+        else return GWood;
     }
 }
