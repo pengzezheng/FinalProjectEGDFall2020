@@ -81,6 +81,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 3443738864729687705, guid: be9123f1217e35246aeb881e83018b17, type: 3}
+      propertyPath: m_TagString
+      value: Goblin
+      objectReference: {fileID: 0}
     - target: {fileID: 3443738864729687707, guid: be9123f1217e35246aeb881e83018b17, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

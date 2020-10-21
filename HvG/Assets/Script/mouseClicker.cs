@@ -11,6 +11,7 @@ public class mouseClicker : MonoBehaviour
         
     }
     public GameObject selected;
+    public GameObject target;
     Camera Cam;
 
     // Update is called once per frame
@@ -31,7 +32,11 @@ public class mouseClicker : MonoBehaviour
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
-                        selected = hit.transform.gameObject;
+                        if (hit.transform.gameObject.tag == "Human" || hit.transform.gameObject.tag == "Goblin")
+                        {
+                            selected = hit.transform.gameObject;
+                        }
+                        
                         PrintName(hit.transform.gameObject);
                         Push(rb);
 
@@ -40,8 +45,19 @@ public class mouseClicker : MonoBehaviour
             }
             if (selected)
             {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (hit.transform.gameObject.tag == "Resource")
+                    {
+                        selected.GetComponent<unitAI>().state = unitAI.State.mining;
+                        selected.GetComponent<unitAI>().target = hit.transform.gameObject;
+                        selected.GetComponent<moveToPoint>().SetMovePosition(hit.point);
+                        
+                    }
+                }
                 if (Input.GetMouseButtonDown(1))
                 {
+                    selected.GetComponent<unitAI>().state = unitAI.State.moving;
                     selected.GetComponent<moveToPoint>().SetMovePosition(hit.point);
                 }
             }

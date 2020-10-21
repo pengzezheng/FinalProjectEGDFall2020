@@ -64,7 +64,9 @@
     <Compile Include="Assets\Script\moon.cs" />
     <Compile Include="Assets\Script\camera.cs" />
     <Compile Include="Assets\Script\moveToPoint.cs" />
-    <Compile Include="Assets\Script\workMovement.cs" />
+    <Compile Include="Assets\Script\unitAI.cs" />
+    <Compile Include="Assets\Script\resource.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
