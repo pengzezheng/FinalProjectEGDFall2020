@@ -7,12 +7,16 @@ public class camera : MonoBehaviour
     GameObject CamMain;
     GameObject CamH;
     GameObject CamG;
+    GameObject HumanControl;
+    GameObject GoblinControl;
     // Start is called before the first frame update
     void Start()
     {
         CamMain = GameObject.Find("CameraMain");
         CamH = GameObject.Find("CameraH");
         CamG = GameObject.Find("CameraG");
+        HumanControl = GameObject.Find("HumanCtrl");
+        GoblinControl = GameObject.Find("GoblinCtrl");
         CamMain.SetActive(true);
         CamH.SetActive(false);
         CamG.SetActive(false);
