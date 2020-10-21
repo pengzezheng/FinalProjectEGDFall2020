@@ -9,7 +9,11 @@ public class playerMovement : MonoBehaviour
     public Camera cam;
     [SerializeField]float speed;
     Vector2 input;
-    float heading = 0;
+    Rigidbody rb;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -21,6 +25,6 @@ public class playerMovement : MonoBehaviour
         camF = camF.normalized;
         camR = camR.normalized;
 
-        transform.position += (camF * input.y + camR * input.x)*Time.deltaTime * speed;
+        rb.transform.position += (camF * input.y + camR * input.x)*Time.deltaTime * speed;
     }
 }
