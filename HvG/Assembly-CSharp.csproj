@@ -57,7 +57,9 @@
   <ItemGroup>
     <Compile Include="Assets\Script\dragon.cs" />
     <Compile Include="Assets\Script\characterSwtich.cs" />
+    <Compile Include="Assets\Script\moveVelocity.cs" />
     <Compile Include="Assets\Script\mouseClicker.cs" />
+    <Compile Include="Assets\Script\playerMovement.cs" />
     <Compile Include="Assets\Script\sun.cs" />
     <Compile Include="Assets\Script\moon.cs" />
     <Compile Include="Assets\Script\camera.cs" />
