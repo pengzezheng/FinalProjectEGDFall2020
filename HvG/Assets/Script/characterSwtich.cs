@@ -9,8 +9,8 @@ public class characterSwtich : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HumanControl = GameObject.Find("HumControl");
-        GoblinControl = GameObject.Find("GobControl");
+        HumanControl = GameObject.Find("HumanCtrl");
+        GoblinControl = GameObject.Find("GoblinCtrl");
         HumanControl.SetActive(false);
         GoblinControl.SetActive(false);
 

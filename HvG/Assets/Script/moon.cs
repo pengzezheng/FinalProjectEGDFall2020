@@ -12,7 +12,7 @@ public class moon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 1;
+        speed = .1f;
         height = 10;
         width = 12;
     }
