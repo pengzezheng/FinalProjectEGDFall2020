@@ -12,6 +12,8 @@ public class unitAI : MonoBehaviour
     GameObject GoblinControl;
     public GameObject building;
     GameObject gameManager;
+
+    //List of movement states
     public enum State
     {
         waiting,
@@ -39,7 +41,6 @@ public class unitAI : MonoBehaviour
                 GetComponent<moveToPoint>().stopped = true;
                 break;
             case (State.moving):
-
                 break;
             case (State.mining):
                 if (GetComponent<moveToPoint>().stopped)
@@ -58,19 +59,15 @@ public class unitAI : MonoBehaviour
 
                     }
                     state = State.waiting;
-
-
                 }
-
                 break;
             case (State.following):
                 GetComponent<moveToPoint>().stoppingDist = 1f;
                 GetComponent<moveToPoint>().SetMovePosition(target.transform.position);
                 break;
-
-
         }
     }
+    //Wait for 2 seconds before mining resource
     IEnumerator Mine()
     {
         yield return new WaitForSeconds(2);

@@ -17,6 +17,7 @@ public class mouseClicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Set Cam before checking raycast
         if (!Cam) Cam = GetCamera();
         RaycastHit hit;
         Ray ray = Cam.ScreenPointToRay(Input.mousePosition);
@@ -30,6 +31,7 @@ public class mouseClicker : MonoBehaviour
                 
                 if (rb = hit.transform.GetComponent<Rigidbody>())
                 {
+                    //Set selected unit when clicking on them, set to waiting if an ai
                     if (Input.GetMouseButtonDown(0))
                     {
                         if (hit.transform.gameObject.tag == "Human" || hit.transform.gameObject.tag == "Goblin")
@@ -40,7 +42,6 @@ public class mouseClicker : MonoBehaviour
                         
                         PrintName(hit.transform.gameObject);
                         Push(rb);
-
                     }
                 }
             }
@@ -48,6 +49,7 @@ public class mouseClicker : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0))
                 {
+                    //Move to an mine resource
                     if (hit.transform.gameObject.tag == "Resource")
                     {
                         target = hit.transform.gameObject;
@@ -56,6 +58,7 @@ public class mouseClicker : MonoBehaviour
                         selected.GetComponent<moveToPoint>().SetMovePosition(hit.point);
                         
                     }
+                    //Start following the player
                     if (hit.transform.gameObject.tag == "Player")
                     {
                         target = hit.transform.gameObject;
@@ -64,12 +67,13 @@ public class mouseClicker : MonoBehaviour
 
                     }
                 }
+                //Move to a position when right clicking
                 if (Input.GetMouseButtonDown(1))
                 {
                     selected.GetComponent<unitAI>().state = unitAI.State.moving;
                     selected.GetComponent<moveToPoint>().SetMovePosition(hit.point);
                 }
-
+                //Build a prefab at the location the mouse is when pressing B
                 if (Input.GetKeyDown(KeyCode.B))
                 {
                     selected.GetComponent<unitAI>().state = unitAI.State.building;
@@ -78,7 +82,7 @@ public class mouseClicker : MonoBehaviour
             }
         }
     }
-
+    //Set Cam to the current camera
     private Camera GetCamera()
     {
         GameObject CamMain = GameObject.Find("CameraMain");

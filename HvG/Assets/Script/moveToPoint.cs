@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script to move the AI to a positoin
 public class moveToPoint : MonoBehaviour
 {
     Vector3 movePosition;
