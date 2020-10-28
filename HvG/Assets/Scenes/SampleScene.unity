@@ -228,6 +228,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72e1eebd5c75ac4cab19283e1a26831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &78497491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78497492}
+  - component: {fileID: 78497493}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78497492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78497491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &78497493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78497491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e554437f3160094092375de37c42cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 1
+  sounds:
+  - name: footstep
+    clip: {fileID: 8300000, guid: b7c39202f8f158d4aa22e05b9e69e51b, type: 3}
+    volume: 0.271
+    setVolume: 0
+    pitch: 1
+    delay: 0.5
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: mine
+    clip: {fileID: 8300000, guid: 5a21324c0949ca845a7f02f7a50ca97e, type: 3}
+    volume: 0.281
+    setVolume: 0
+    pitch: 1
+    delay: 0.5
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: build
+    clip: {fileID: 8300000, guid: e38bec4c089eefe438fa51e8a7fd747c, type: 3}
+    volume: 0.299
+    setVolume: 0
+    pitch: 1
+    delay: 2
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: footstep2
+    clip: {fileID: 8300000, guid: b7c39202f8f158d4aa22e05b9e69e51b, type: 3}
+    volume: 0.299
+    setVolume: 0
+    pitch: 1
+    delay: 0.45
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
 --- !u!1 &111375695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 458363820}
+  soundManager: {fileID: 78497493}
   speed: 7
 --- !u!4 &925995505 stripped
 Transform:
@@ -2481,6 +2563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1247102805}
+  soundManager: {fileID: 78497493}
   speed: 7
 --- !u!1 &1786257039
 GameObject:

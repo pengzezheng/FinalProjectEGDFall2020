@@ -7,6 +7,7 @@ public class playerMovement : MonoBehaviour
 {
     // Move the player with WASD, arrows, or control stick if we use it
     public Camera cam;
+    public SoundManager soundManager;
     [SerializeField]float speed;
     Vector2 input;
     Rigidbody rb;
@@ -18,6 +19,7 @@ public class playerMovement : MonoBehaviour
     {
         //Use axes for movement 
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (input.magnitude > 0f) soundManager.PlaySound("footstep",gameObject.transform.position, false);
         
         Vector3 camF =  cam.transform.forward;
         Vector3 camR = cam.transform.right;

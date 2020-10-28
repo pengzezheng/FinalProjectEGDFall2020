@@ -12,6 +12,7 @@ public class unitAI : MonoBehaviour
     GameObject GoblinControl;
     public GameObject building;
     GameObject gameManager;
+    GameObject soundManager;
 
     //List of movement states
     public enum State
@@ -30,6 +31,7 @@ public class unitAI : MonoBehaviour
         HumanControl = GameObject.Find("HumanCtrl");
         GoblinControl = GameObject.Find("GoblinCtrl");
         gameManager = GameObject.Find("GameManager");
+        soundManager = GameObject.Find("SoundManager");
     }
 
     // Update is called once per frame
@@ -41,16 +43,23 @@ public class unitAI : MonoBehaviour
                 GetComponent<moveToPoint>().stopped = true;
                 break;
             case (State.moving):
+                if (GetComponent<moveToPoint>().stopped == false)
+                {
+                    soundManager.GetComponent<SoundManager>().PlaySound("footstep2", gameObject.transform.position, false);
+                }
+                
                 break;
             case (State.mining):
                 if (GetComponent<moveToPoint>().stopped)
                 {
+                    soundManager.GetComponent<SoundManager>().PlaySound("mine", gameObject.transform.position, false);
                     StartCoroutine(Mine());
                 }
                 break;
             case (State.building):
                 if (GetComponent<moveToPoint>().stopped)
                 {
+                    soundManager.GetComponent<SoundManager>().PlaySound("build", gameObject.transform.position, false);
                     if (gameManager.GetComponent<GameManager>().getWood(human) > 0)
                     {
                         gameManager.GetComponent<GameManager>().addWood(-1, human);
@@ -64,6 +73,10 @@ public class unitAI : MonoBehaviour
             case (State.following):
                 GetComponent<moveToPoint>().stoppingDist = 1f;
                 GetComponent<moveToPoint>().SetMovePosition(target.transform.position);
+                if (GetComponent<moveToPoint>().stopped == false)
+                {
+                    soundManager.GetComponent<SoundManager>().PlaySound("footstep2", gameObject.transform.position, false);
+                }
                 break;
         }
     }
