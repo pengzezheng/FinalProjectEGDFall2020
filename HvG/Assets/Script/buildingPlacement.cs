@@ -32,6 +32,8 @@ public class buildingPlacement : MonoBehaviour
                 if (IsLegalPosition())
                 {
                     hasPlaced = true;
+                    SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+                    soundManager.PlaySound("build", false);
                 }
             }
         }
@@ -46,15 +48,18 @@ public class buildingPlacement : MonoBehaviour
                     if(placeableBuildingsOld != null)
                     {
                         placeableBuildingsOld.SetSelected(false);
+
                     }
                     hit.collider.gameObject.GetComponent<placeableBuilding>().SetSelected(true);
                     placeableBuildingsOld = hit.collider.gameObject.GetComponent<placeableBuilding>();
+                    
                 }
                 else
                 {
                     if (placeableBuildingsOld != null)
                     {
                         placeableBuildingsOld.SetSelected(false);
+                        
                     }
                 }
             }
