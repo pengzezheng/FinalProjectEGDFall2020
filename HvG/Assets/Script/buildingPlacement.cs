@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class buildingPlacement : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class buildingPlacement : MonoBehaviour
                     }
                     hit.collider.gameObject.GetComponent<placeableBuilding>().SetSelected(true);
                     placeableBuildingsOld = hit.collider.gameObject.GetComponent<placeableBuilding>();
-                    
+                    Text t = GameObject.Find("messageText").GetComponent<Text>().text.ToString();
                 }
                 else
                 {
