@@ -6,7 +6,7 @@ public class placeableBuilding : MonoBehaviour
 {
 
     public List<Collider> colliders = new List<Collider>();
-    private bool isSelected;
+    public bool isSelected;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +19,20 @@ public class placeableBuilding : MonoBehaviour
         
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         if (isSelected)
         {
-            GUI.Button(new Rect(100, 200, 100, 30), name);
+            if (gameObject.name == "House")
+            {
+                GUI.Button(new Rect(100, 200, 100, 30), "check");
+            }
+            else
+            {
+                GUI.Button(new Rect(100, 200, 100, 30), "ooo");
+            }
         }
-    }
+    }*/
 
     void OnTriggerEnter(Collider other)
     {

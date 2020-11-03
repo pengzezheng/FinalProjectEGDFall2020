@@ -338,8 +338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f319732a3d74e8144b6e9cd0294944d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HWood: 0
-  GWood: 0
+  HWood: 15
+  HMeat: 50
+  GWood: 15
+  GMeat: 50
 --- !u!4 &111375697
 Transform:
   m_ObjectHideFlags: 0
@@ -1303,6 +1305,7 @@ MonoBehaviour:
   buildingsMask:
     serializedVersion: 2
     m_Bits: 256
+  gameManagers: {fileID: 0}
 --- !u!1001 &533758852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1961,6 +1964,8 @@ GameObject:
   - component: {fileID: 1247102805}
   - component: {fileID: 1247102804}
   - component: {fileID: 1247102807}
+  - component: {fileID: 1247102809}
+  - component: {fileID: 1247102808}
   m_Layer: 0
   m_Name: CameraG
   m_TagString: Untagged
@@ -2048,6 +2053,38 @@ MonoBehaviour:
   force: 2
   selected: {fileID: 0}
   target: {fileID: 0}
+--- !u!114 &1247102808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247102803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3355e0e46342ed4d91301701eac9b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingsMask:
+    serializedVersion: 2
+    m_Bits: 256
+  gameManagers: {fileID: 0}
+--- !u!114 &1247102809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247102803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9942b172cd0241b45abda1b3bf688211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildings:
+  - {fileID: 6818995441822652966, guid: b77361b4b0a76bc4cbba3a0650180fc1, type: 3}
+  - {fileID: 3436041013981411469, guid: f0a03e785972cc14f9e7dbb2be3f3a4b, type: 3}
+  - {fileID: 4885629826888699284, guid: 610b4330418ec3f488e444576aa1a811, type: 3}
 --- !u!4 &1384834171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1891164986336648680, guid: bd683a92fdb47874cb2c940d686444a0, type: 3}

@@ -10,11 +10,12 @@ public class buildingPlacement : MonoBehaviour
     private Transform currentBuilding;
     private bool hasPlaced; 
     public LayerMask buildingsMask;
+    public GameObject gameManagers;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManagers = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
@@ -32,9 +33,13 @@ public class buildingPlacement : MonoBehaviour
             {
                 if (IsLegalPosition())
                 {
-                    hasPlaced = true;
-                    SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
-                    soundManager.PlaySound("build", false);
+                    if (gameManagers.GetComponent<GameManager>().HWood >= 5)
+                    {
+                        hasPlaced = true;
+                        SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+                        soundManager.PlaySound("build", false);
+                        gameManagers.GetComponent<GameManager>().HWood -= 5;
+                    }
                 }
             }
         }
@@ -53,14 +58,13 @@ public class buildingPlacement : MonoBehaviour
                     }
                     hit.collider.gameObject.GetComponent<placeableBuilding>().SetSelected(true);
                     placeableBuildingsOld = hit.collider.gameObject.GetComponent<placeableBuilding>();
-                    Text t = GameObject.Find("messageText").GetComponent<Text>().text.ToString();
+                    //Text t = GameObject.Find("messageText").GetComponent<Text>().text.ToString();
                 }
                 else
                 {
                     if (placeableBuildingsOld != null)
                     {
-                        placeableBuildingsOld.SetSelected(false);
-                        
+                        placeableBuildingsOld.SetSelected(false);                        
                     }
                 }
             }

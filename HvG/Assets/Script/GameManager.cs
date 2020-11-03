@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] int HWood;
-    [SerializeField] int GWood;
+    [SerializeField] public int HWood;
+    [SerializeField] public int HMeat;
+
+    [SerializeField] public int GWood;
+    [SerializeField] public int GMeat;
+
     private Text HWoodCount;
     private Text GWoodCount;
     // Start is called before the first frame update
